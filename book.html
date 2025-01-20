@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Travel Consultation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+     <!-- Favicon for modern browsers -->
+     <link rel="icon" type="image/png" sizes="32x32" href="Group 1 (1).png">
+     <link rel="icon" type="image/png" sizes="16x16" href="Group 1 (1).png">
+     
+     <!-- Apple Touch Icon (for iOS devices) -->
+     <link rel="apple-touch-icon" sizes="180x180" href="Group 1 (1).png">
+     
+     <!-- Microsoft Tiles (for Windows devices) -->
+     <meta name="msapplication-TileImage" content="Group 1 (1).png">
+     <meta name="msapplication-TileColor" content="#ffffff">
+     
+     <!-- Safari Pinned Tab -->
+     <link rel="mask-icon" href="Group 1 (1).png" color="#5bbad5">
+     
+     <!-- Default Favicon -->
+     <link rel="shortcut icon" href="Group 1 (1).png">
+     
+     <!-- Theme Color -->
+     <meta name="theme-color" content="#ffffff">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="Group 1 (1).png" alt="Belis Consulting Inc" class="h-16">
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-xl text-gray-700 hover:text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300">Home</a>
+                    <a href="book.html" class="text-xl text-white bg-blue-600 hover:bg-blue-700 font-medium px-6 py-2 rounded-lg transition-all duration-300">Book</a>
+                    <a href="about.html" class="text-xl text-gray-700 hover:text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Breadcrumb Navigation -->
+    <div class="fixed top-[85%] left-8 transform -translate-y-1/2 z-40">
+        <nav class="bg-white/90 backdrop-blur-sm 
+                    px-4 py-4 rounded-2xl
+                    shadow-lg hover:shadow-xl 
+                    transition-all duration-300 ease-in-out
+                    group"
+             aria-label="Breadcrumb">
+            <ol class="flex flex-col space-y-3">
+                <!-- Current Page - Top -->
+                <li class="flex items-center">
+                    <span class="bg-blue-100 p-2 rounded-full transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </span>
+                    <span class="text-blue-600 font-medium text-sm opacity-0 group-hover:opacity-100 
+                               transition-opacity duration-300 absolute left-full pl-3 whitespace-nowrap" 
+                          id="current-page">
+                        Book Consultation
+                    </span>
+                </li>
+
+                <!-- Divider -->
+                <li class="flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="w-px h-4 bg-gray-300"></div>
+                </li>
+
+                <!-- Home - Bottom -->
+                <li>
+                    <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors flex items-center group">
+                        <span class="bg-gray-100 p-2 rounded-full group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </span>
+                        <span class="text-sm font-medium opacity-0 group-hover:opacity-100 
+                                   transition-opacity duration-300 absolute left-full pl-3 whitespace-nowrap">
+                            Home
+                        </span>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main content area - with responsive adjustments -->
+    <div class="flex mt-2 sm:mt-4"> <!-- Reduced top margin, responsive -->
+        <!-- Left Side Animation - hidden on smaller screens -->
+        <div class="hidden lg:block w-1/6 fixed left-0 h-full bg-gradient-to-b from-blue-50 to-white">
+            <div class="h-full opacity-0 transition-all duration-1000 translate-x-[-100px]" id="animSection1">
+                <div class="p-6 space-y-6">
+                    <div class="text-center">
+                        <h2 class="text-lg font-bold text-gray-900 mb-2">Premium Benefits</h2>
+                        <p class="text-sm text-gray-600">Member Perks</p>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&auto=format&fit=crop&q=60" alt="Luxury Hotel" class="w-full h-32 object-cover rounded-lg shadow-md mb-4">
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="font-medium text-sm">Price Match</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Best price guaranteed</p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="font-medium text-sm">24/7 Support</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Always available</p>
+                        </div>
+
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&auto=format&fit=crop&q=60" alt="Travel Experience" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content - with responsive width and padding -->
+        <div class="w-full lg:flex-1 max-w-5xl mx-auto px-2 sm:px-4 lg:px-8"> <!-- Adjusted padding for mobile -->
+            <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                <div class="px-3 sm:px-6 py-4 sm:py-6"> <!-- Responsive padding -->
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Book Your Travel Consultation</h2>
+                    
+                 
+                    <!-- Service Selection - made scrollable on mobile -->
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Select a Service</h3>
+                        <div class="relative">
+                            <div class="flex overflow-x-auto pb-4 space-x-3 sm:space-x-4 scrollbar-hide" style="scroll-behavior: smooth;">
+                                <!-- Consultation Service -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&auto=format&fit=crop&q=60" alt="Consultation" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2" checked>
+                                    <span class="mt-2 text-center font-medium">Travel Consultation</span>
+                                    <p class="text-gray-600 text-sm mt-1">One-on-one expert travel planning session</p>
+                                    <p class="text-blue-600 font-bold mt-2">$50/hour</p>
+                                </label>
+
+                                <!-- Flight Booking Service -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&auto=format&fit=crop&q=60" alt="Flights" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2">
+                                    <span class="mt-2 text-center font-medium">Flight Booking</span>
+                                    <p class="text-gray-600 text-sm mt-1">Best deals on international flights</p>
+                                    <p class="text-blue-600 font-bold mt-2">From $30</p>
+                                </label>
+
+                                <!-- Hotel Booking Service -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&auto=format&fit=crop&q=60" alt="Hotels" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2">
+                                    <span class="mt-2 text-center font-medium">Hotel Booking</span>
+                                    <p class="text-gray-600 text-sm mt-1">Curated selection of accommodations</p>
+                                    <p class="text-blue-600 font-bold mt-2">From $25</p>
+                                </label>
+
+                                <!-- Group Tours -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1502003148287-a82ef80a6abc?w=700&auto=format&fit=crop&q=60" alt="Group Tours" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2">
+                                    <span class="mt-2 text-center font-medium">Group Tours</span>
+                                    <p class="text-gray-600 text-sm mt-1">Join guided group adventures</p>
+                                    <p class="text-blue-600 font-bold mt-2">From $299</p>
+                                </label>
+
+                                <!-- Custom Packages -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&auto=format&fit=crop&q=60" alt="Custom Packages" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2">
+                                    <span class="mt-2 text-center font-medium">Custom Packages</span>
+                                    <p class="text-gray-600 text-sm mt-1">Tailored travel experiences</p>
+                                    <p class="text-blue-600 font-bold mt-2">Custom Quote</p>
+                                </label>
+
+                                <!-- Visa Assistance -->
+                                <label class="flex-none w-64 sm:w-72 md:w-80 flex flex-col items-center bg-white p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                                    <img src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?w=700&auto=format&fit=crop&q=60" alt="Visa Assistance" class="w-full h-48 object-cover mb-2 rounded-md">
+                                    <input type="radio" name="service" class="form-radio text-blue-500 mt-2">
+                                    <span class="mt-2 text-center font-medium">Visa Assistance</span>
+                                    <p class="text-gray-600 text-sm mt-1">Expert visa application support</p>
+                                    <p class="text-blue-600 font-bold mt-2">From $100</p>
+                                </label>
+                            </div>
+                            
+                            <!-- Scroll Buttons -->
+                            <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white" onclick="scrollServices('left')">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white" onclick="scrollServices('right')">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Date and Time Selection - responsive spacing -->
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Select a Date and Time</h3>
+                        <div class="bg-white shadow-md rounded-lg p-3 sm:p-4 space-y-3 sm:space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                                <input type="text" id="datePicker" placeholder="Select a date" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
+                                <input type="text" id="timePicker" placeholder="Select a time" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Traveler Information - responsive grid -->
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Traveler Information</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                <input type="tel" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Number of Travelers</label>
+                                <input type="number" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+                                <input type="text" placeholder="Street Address" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                <input type="text" placeholder="City" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">State/Province</label>
+                                <input type="text" placeholder="State" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Zip/Postal Code</label>
+                                <input type="text" placeholder="Zip Code" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                <input type="text" placeholder="Country" class="w-full px-3 sm:px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods - responsive layout -->
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Payment Method</h3>
+                        <div class="bg-white shadow-md rounded-lg p-3 sm:p-6">
+                            <!-- Payment Tabs -->
+                            <div class="flex space-x-4 mb-6">
+                                <button class="payment-tab active px-4 py-2 rounded-md bg-blue-50 text-blue-600 font-medium">Mobile Money</button>
+                                <!---<button class="payment-tab px-4 py-2 rounded-md text-gray-600">Credit Card</button> --->
+                                <!---<button class="payment-tab px-4 py-2 rounded-md text-gray-600">PayPal</button> --->
+                            </div>
+
+                            <!-- Mobile Money Form -->
+                            <div id="mobile-money-form" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Select Provider</label>
+                                        <select class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <option>MTN Mobile Money</option>
+                                            <option>Airtel Money</option>
+                                            <option>Tecel Cash</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                        <input type="tel" placeholder="+233 XXX XXX XXX" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    </div>
+                                </div>
+                                
+                                <!-- QR Code Payment Option -->
+                                <div class="mt-4 text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Or scan QR code to pay</p>
+                                    <div class="inline-block p-4 bg-white border rounded-lg">
+                                        <img src="https://via.placeholder.com/150" alt="Payment QR Code" class="mx-auto">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Submit Button - responsive spacing -->
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-center">
+                            <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label class="ml-2 block text-sm text-gray-900">
+                                I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms and Conditions</a>
+                            </label>
+                        </div>
+
+                        <button class="w-full bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md hover:bg-blue-700 transition-colors text-sm sm:text-base">
+                            Book Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+               <!-- Documents Section -->
+               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Required Documents</h2>
+                <p class="text-gray-600 mb-8">Please download and review these documents before proceeding with your booking.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Agreement Form -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all group">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-red-100 rounded-xl group-hover:bg-red-200 transition-colors">
+                                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Agreement Form</h3>
+                                <p class="text-gray-600 mb-4">Required: Please download, fill out, and bring to your consultation.</p>
+                                <div class="flex items-center text-sm text-gray-500 mb-4">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    <span>PDF • 245 KB</span>
+                                </div>
+                                <a href="/documents/agreement-form.pdf" 
+                                   class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 
+                                          text-white rounded-lg transition-colors duration-200">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                    Download Agreement Form
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Letter -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all group">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-blue-100 rounded-xl group-hover:bg-blue-200 transition-colors">
+                                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Process Letter</h3>
+                                <p class="text-gray-600 mb-4">Important: Please read this document before your consultation.</p>
+                                <div class="flex items-center text-sm text-gray-500 mb-4">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    <span>PDF • 180 KB</span>
+                                </div>
+                                <a href="/documents/process-letter.pdf" 
+                                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 
+                                          text-white rounded-lg transition-colors duration-200">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                    Download Process Letter
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <!-- Right Side Animation - hidden on smaller screens -->
+        <div class="hidden lg:block w-1/6 fixed right-0 h-full bg-gradient-to-b from-blue-50 to-white">
+            <div class="h-full opacity-0 transition-all duration-1000 translate-x-[100px]" id="animSection2">
+                <div class="p-6 space-y-6">
+                    <div class="text-center">
+                        <h2 class="text-lg font-bold text-gray-900 mb-2">Why Us?</h2>
+                        <p class="text-sm text-gray-600">Travel Better</p>
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1502003148287-a82ef80a6abc?w=500&auto=format&fit=crop&q=60" alt="Group Travel" class="w-full h-32 object-cover rounded-lg shadow-md mb-4">
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                <span class="font-medium text-sm">Secure</span>
+                            </div>
+                            <p class="text-xs text-gray-600">SSL protected</p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                <span class="font-medium text-sm">Experts</span>
+                            </div>
+                            <p class="text-xs text-gray-600">Pro consultants</p>
+                        </div>
+
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&auto=format&fit=crop&q=60" alt="Adventure Travel" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Footer can be added here if needed -->
+
+    <script>
+        // Payment tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentTabs = document.querySelectorAll('.payment-tab');
+            
+            paymentTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    paymentTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-blue-50', 'text-blue-600');
+                        t.classList.add('text-gray-600');
+                    });
+                    
+                    tab.classList.add('active', 'bg-blue-50', 'text-blue-600');
+                    tab.classList.remove('text-gray-600');
+                });
+            });
+        });
+
+        // Styles
+        const styles = `
+            .payment-tab {
+                transition: all 0.3s ease;
+            }
+            .payment-tab:hover {
+                background-color: #f0f7ff;
+            }
+            .payment-tab.active {
+                font-weight: 500;
+            }
+        `;
+
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = styles;
+        document.head.appendChild(styleSheet);
+
+        function scrollServices(direction) {
+            const container = document.querySelector('.overflow-x-auto');
+            const scrollAmount = 320; // Width of one card + gap
+            
+            if (direction === 'left') {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Hide scrollbar but keep functionality
+        const style = document.createElement('style');
+        style.textContent = `
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        `;
+        document.head.appendChild(style);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date picker
+            flatpickr("#datePicker", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                altInput: true,
+                altFormat: "F j, Y",
+                disableMobile: "true"
+            });
+
+            // Initialize time picker
+            flatpickr("#timePicker", {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                altInput: true,
+                altFormat: "h:i K",
+                minTime: "09:00",
+                maxTime: "18:00",
+                disableMobile: "true",
+                time_24hr: false
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'animSection1') {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    } else if (entry.target.id === 'animSection2') {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Start observing elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animSection1 = document.getElementById('animSection1');
+            const animSection2 = document.getElementById('animSection2');
+            
+            if (animSection1) observer.observe(animSection1);
+            if (animSection2) observer.observe(animSection2);
+        });
+    </script>
+
+    <!-- Add this CSS for better mobile scrolling -->
+    <style>
+        @media (max-width: 640px) {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            input, select, textarea {
+                font-size: 16px !important; /* Prevents zoom on mobile */
+            }
+        }
+    </style>
+
+    <style>
+        nav[aria-label="Breadcrumb"] {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        nav[aria-label="Breadcrumb"]:hover {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 640px) {
+            .fixed.left-8 {
+                left: 1rem;
+            }
+            
+            nav[aria-label="Breadcrumb"] {
+                padding: 0.75rem;
+            }
+            
+            nav[aria-label="Breadcrumb"] svg {
+                width: 0.875rem;
+                height: 0.875rem;
+            }
+        }
+    </style>
+</body>
+</html>
