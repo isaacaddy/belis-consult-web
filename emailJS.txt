@@ -1,0 +1,54 @@
+<!-- Email Template in EmailJS -->
+New Booking Request from Website
+
+To: {{to_email}}
+From: {{from_name}}
+Service: {{service_type}}
+
+Client Details:
+Name: {{from_name}}
+Contact Number: {{contact}}
+Email: {{reply_to}}
+Subject: {{subject}}
+
+Message:
+{{message}}
+
+This is an automated message from your website booking system.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+This template doesn't go in your code - it's meant to be set up in your EmailJS account. Here's how to set it up:
+Go to EmailJS.com and log into your account
+Click on "Email Templates" in the left sidebar
+Click "Create New Template"
+In the template editor:
+Set a template name (e.g., "Booking Request")
+In the "To email" field, use {{to_email}}
+In the "From name" field, use {{from_name}}
+In the "Subject" field, you can write "New Booking Request: {{subject}}"
+In the content/body section, paste this:
+
+New Booking Request from Website
+
+Service: {{service_type}}
+
+Client Details:
+Name: {{from_name}}
+Contact Number: {{contact}}
+Email: {{reply_to}}
+Subject: {{subject}}
+
+Message:
+{{message}}
+
+This is an automated message from your website booking system.
+
+Click "Save" to save your template
+Copy the Template ID (you'll need this for your code)
+Then make sure your code has the correct IDs:
+
+emailjs.send(
+    'YOUR_SERVICE_ID',     // The Service ID from your EmailJS dashboard
+    'YOUR_TEMPLATE_ID',    // The Template ID you just created
+    templateParams
+)
